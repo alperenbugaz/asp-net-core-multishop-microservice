@@ -7,6 +7,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{F3
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiShop.Catalog", "Services\MultiShop.Catalog\MultiShop.Catalog.csproj", "{BB9BCFF9-0C2F-4668-98A8-157076E3A28B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MulitShop.Discount", "Services\MulitShop.Discount\MulitShop.Discount.csproj", "{9BAA9B15-493C-438D-B4EF-5E4E7D34F9CB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,8 +22,13 @@ Global
 		{BB9BCFF9-0C2F-4668-98A8-157076E3A28B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BB9BCFF9-0C2F-4668-98A8-157076E3A28B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BB9BCFF9-0C2F-4668-98A8-157076E3A28B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9BAA9B15-493C-438D-B4EF-5E4E7D34F9CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9BAA9B15-493C-438D-B4EF-5E4E7D34F9CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9BAA9B15-493C-438D-B4EF-5E4E7D34F9CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9BAA9B15-493C-438D-B4EF-5E4E7D34F9CB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{BB9BCFF9-0C2F-4668-98A8-157076E3A28B} = {F3C754EA-6769-42B1-A223-FE16B2242BE6}
+		{9BAA9B15-493C-438D-B4EF-5E4E7D34F9CB} = {F3C754EA-6769-42B1-A223-FE16B2242BE6}
 	EndGlobalSection
 EndGlobal

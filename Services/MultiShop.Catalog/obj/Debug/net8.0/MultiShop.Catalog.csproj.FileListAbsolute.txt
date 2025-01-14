@@ -39,3 +39,4 @@ E:\github\asp-net-core-multishop-microservice\Services\MultiShop.Catalog\obj\Deb
 E:\github\asp-net-core-multishop-microservice\Services\MultiShop.Catalog\obj\Debug\net8.0\MultiShop.Catalog.pdb
 E:\github\asp-net-core-multishop-microservice\Services\MultiShop.Catalog\obj\Debug\net8.0\MultiShop.Catalog.genruntimeconfig.cache
 E:\github\asp-net-core-multishop-microservice\Services\MultiShop.Catalog\obj\Debug\net8.0\ref\MultiShop.Catalog.dll
+E:\github\asp-net-core-multishop-microservice\Services\MultiShop.Catalog\obj\Debug\net8.0\MultiShop.Catalog.sourcelink.json
