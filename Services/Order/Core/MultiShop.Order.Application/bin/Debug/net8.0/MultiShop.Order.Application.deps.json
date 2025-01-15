@@ -1,0 +1,39 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "MultiShop.Order.Application/1.0.0": {
+        "dependencies": {
+          "MultiShop.Order.Domain": "1.0.0"
+        },
+        "runtime": {
+          "MultiShop.Order.Application.dll": {}
+        }
+      },
+      "MultiShop.Order.Domain/1.0.0": {
+        "runtime": {
+          "MultiShop.Order.Domain.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "MultiShop.Order.Application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "MultiShop.Order.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

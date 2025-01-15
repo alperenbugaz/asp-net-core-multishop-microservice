@@ -1,0 +1,41 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\github\\asp-net-core-multishop-microservice\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{8F8A9DEF-7771-4825-ABE1-A0A4D6393912}|Services\\Order\\Core\\MultiShop.Order.Application\\MultiShop.Order.Application.csproj|e:\\github\\asp-net-core-multishop-microservice\\services\\order\\core\\multishop.order.application\\features\\mediator\\readme.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
+      "RelativeMoniker": "D:0:0:{8F8A9DEF-7771-4825-ABE1-A0A4D6393912}|Services\\Order\\Core\\MultiShop.Order.Application\\MultiShop.Order.Application.csproj|solutionrelative:services\\order\\core\\multishop.order.application\\features\\mediator\\readme.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "README.md",
+              "DocumentMoniker": "E:\\github\\asp-net-core-multishop-microservice\\Services\\Order\\Core\\MultiShop.Order.Application\\Features\\Mediator\\README.md",
+              "RelativeDocumentMoniker": "Services\\Order\\Core\\MultiShop.Order.Application\\Features\\Mediator\\README.md",
+              "ToolTip": "E:\\github\\asp-net-core-multishop-microservice\\Services\\Order\\Core\\MultiShop.Order.Application\\Features\\Mediator\\README.md",
+              "RelativeToolTip": "Services\\Order\\Core\\MultiShop.Order.Application\\Features\\Mediator\\README.md",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2025-01-15T20:57:17.239Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
