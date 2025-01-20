@@ -8,8 +8,9 @@ public static class Config
     public static IEnumerable<ApiResource> ApiResources =>new ApiResource[]
         {
             new ApiResource("ResourceCatalog"){Scopes = { "CatalogFullPermission","CatalogReadPermission" }},
-            new ApiResource("ResourceDiscount"){Scopes = { "DiscountFullPermission" }},
-            new ApiResource("ResourceOrder"){Scopes = { "OrderFullPermission" }}
+           new ApiResource("ResourceDiscount"){Scopes={"DiscountFullPermission"} },
+            new ApiResource("ResourceOrder"){Scopes = { "OrderFullPermission" }},
+            new ApiResource(IdentityServerConstants.LocalApi.ScopeName)
 
 
         };  
@@ -17,8 +18,8 @@ public static class Config
     public static IEnumerable<IdentityResource> IdentityResources =>new IdentityResource[]
         {
             new IdentityResources.OpenId(),
-            new IdentityResources.Profile(),
-            new IdentityResources.Email()
+            new IdentityResources.Email(),
+            new IdentityResources.Profile()
         };
 
     public static IEnumerable<ApiScope> ApiScopes => new ApiScope[]
@@ -26,7 +27,9 @@ public static class Config
             new ApiScope("CatalogFullPermission", "Full access to catalog"),
             new ApiScope("CatalogReadPermission", "Read access to catalog"),
             new ApiScope("DiscountFullPermission", "Full access to discount"),
-            new ApiScope("OrderFullPermission", "Full access to order")
+            new ApiScope("OrderFullPermission", "Full access to order"),
+            new ApiScope(IdentityServerConstants.LocalApi.ScopeName)
+
         };
 
     public static IEnumerable<Client> Clients => new Client[]
@@ -38,7 +41,7 @@ public static class Config
                 ClientName = "MultiShop Visitor User",
                 AllowedGrantTypes = GrantTypes.ClientCredentials,
                 ClientSecrets = { new Secret("MultiShopVisitorSecret".Sha256()) },
-                AllowedScopes = { "CatalogReadPermission" }
+                AllowedScopes = { "CatalogReadPermission" , "DiscountFullPermission" }
             },
             //Manager
             new Client
@@ -47,7 +50,7 @@ public static class Config
                 ClientName = "MultiShop Manager User",
                 AllowedGrantTypes = GrantTypes.ClientCredentials,
                 ClientSecrets = { new Secret("MultiShopManagerSecret".Sha256()) },
-                AllowedScopes = { "CatalogFullPermission", "CatalogReadPermission"}
+                AllowedScopes = { "CatalogFullPermission", "CatalogReadPermission", "DiscountFullPermission" }
             },
             //Admin
             new Client

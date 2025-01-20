@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MultiShop.Discount.Dtos;
 using MultiShop.Discount.Services;
@@ -6,6 +7,7 @@ namespace MultiShop.Discount.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class DiscountController : ControllerBase
     {
         private readonly IDiscountService _discountService;

@@ -4,6 +4,7 @@ using MultiShop.IdentityServer.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace MultiShop.IdentityServer;
 
@@ -33,6 +34,8 @@ internal static class HostingExtensions
             })
             .AddInMemoryIdentityResources(Config.IdentityResources)
             .AddInMemoryApiScopes(Config.ApiScopes)
+            .AddInMemoryApiResources(Config.ApiResources)
+            
             .AddInMemoryClients(Config.Clients)
             .AddAspNetIdentity<ApplicationUser>();
         

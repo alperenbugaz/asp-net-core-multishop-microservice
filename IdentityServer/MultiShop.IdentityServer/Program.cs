@@ -10,12 +10,16 @@ Log.Logger = new LoggerConfiguration()
 Log.Information("Starting up");
 
 try
-{
+{   
+    
+
+
     var builder = WebApplication.CreateBuilder(args);
+    builder.Services.AddLocalApiAuthentication();
+
     var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
     builder.Services.AddControllers();
     builder.Services.AddEndpointsApiExplorer();
-
 
 
     builder.Services.AddDbContext<ApplicationDbContext>(options =>
