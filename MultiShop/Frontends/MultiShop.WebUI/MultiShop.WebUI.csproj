@@ -7,13 +7,29 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Areas\Admin\Models\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\AdminTemplate\help-documentation\assets\.DS_Store" />
+    <None Include="wwwroot\AdminTemplate\help-documentation\assets\blueprint-css\plugins\.DS_Store" />
+    <None Include="wwwroot\AdminTemplate\html\app\et-line-font\fonts\.DS_Store" />
+    <None Include="wwwroot\AdminTemplate\html\charts\et-line-font\fonts\.DS_Store" />
+    <None Include="wwwroot\AdminTemplate\html\component\et-line-font\fonts\.DS_Store" />
+    <None Include="wwwroot\AdminTemplate\html\dist\et-line-font\fonts\.DS_Store" />
+    <None Include="wwwroot\AdminTemplate\html\forms\et-line-font\fonts\.DS_Store" />
+    <None Include="wwwroot\AdminTemplate\html\maps\et-line-font\fonts\.DS_Store" />
+    <None Include="wwwroot\AdminTemplate\html\pages\et-line-font\fonts\.DS_Store" />
+    <None Include="wwwroot\AdminTemplate\html\tables\et-line-font\fonts\.DS_Store" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.7" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Areas\Admin\Data\" />
-    <Folder Include="Areas\Admin\Models\" />
-    <Folder Include="Areas\Admin\Views\" />
+    <ProjectReference Include="..\MultiShop.DtoLayer\MultiShop.DtoLayer.csproj" />
   </ItemGroup>
 
 </Project>
