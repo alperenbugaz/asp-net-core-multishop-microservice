@@ -1,0 +1,30 @@
+﻿@model UpdateBrandDto
+
+
+@{
+    ViewData["Title"] = "EditBrand";
+    Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
+}
+
+<section class="content container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="chart-box">
+                <h4>Edit Brand</h4>
+                <div class="bs-example" data-example-id="simple-table">
+                    <form method="post">
+                        <input type="hidden" asp-for="BrandId" />
+                        <label>Category Name</label>
+                        <input type="text" class="form-control" asp-for="BrandName" />
+                        <br>
+                        <label>Image Url</label>
+                        <input type="text" class="form-control" asp-for="ImageUrl" />
+                        <br>
+                        <button type="submit" class="btn btn-primary">Edit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>

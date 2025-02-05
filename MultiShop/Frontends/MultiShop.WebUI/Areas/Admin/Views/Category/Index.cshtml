@@ -3,6 +3,7 @@
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
+    int count = 0;
 }
 
 <section class="content container-fluid">
@@ -10,17 +11,13 @@
         <div class="col-md-12">
             <div class="chart-box">
                 <h4>Category List</h4>
-                <p>You can perform category operations from the table below.</p>
                 <div class="bs-example" data-example-id="simple-table">
                     <table class="table">
-                        <caption>
-                            Optional table caption.
-                        </caption>
+
                         <thead>
                             <tr>
                                 <th>#</th>
                                 <th>Category Name</th>
-                                <th>Products</th>
                                 <th>Delete</th>
                                 <th>Update</th>
                             </tr>
@@ -28,12 +25,12 @@
                         <tbody>
                             @foreach (var item in Model)
                             {
+                                count++;
                             <tr>
-                                <th scope="row">@item.CategoryId</th>
+                                <th scope="row">@count</th>
                                 <td>@item.CategoryName</td>
-                                <td><a href="" class="btn btn-warnig">Products</a></td>
                                 <td><a href="/Admin/Category/DeleteCategory/@item.CategoryId" class="btn btn-danger">Delete</a></td>
-                                    <td><a href="/Admin/Category/EditCategory/@item.CategoryId" class="btn btn-success">Update</a></td>
+                                <td><a href="/Admin/Category/EditCategory/@item.CategoryId" class="btn btn-success">Update</a></td>
 
                             </tr>
                             }

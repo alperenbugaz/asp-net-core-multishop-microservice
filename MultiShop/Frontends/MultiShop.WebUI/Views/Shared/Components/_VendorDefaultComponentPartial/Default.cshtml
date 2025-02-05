@@ -1,26 +1,15 @@
-﻿<div class="container-fluid py-5">
+﻿@model List<ResultBrandDto>
+<div class="container-fluid py-5">
     <div class="row px-xl-5">
         <div class="col">
             <div class="owl-carousel vendor-carousel" >
+                
+                @foreach (var item in Model)
+                {
                 <div class="bg-light p-4">
-                    <img src="~/Template/images/adidas.png" alt="" style="width:330;height:235">
+                    <img src="@item.ImageUrl" alt="" style="width:330;height:235">
                 </div>
-                <div class="bg-light p-4">
-                    <img src="~/Template/images/hummel.jpg" alt="" style="width:330;height:235">
-                </div>
-                <div class="bg-light p-4">
-                    <img src="~/Template/images/ikea.png" alt="" style="width:330;height:235">
-                </div>
-                <div class="bg-light p-4">
-                    <img src="~/Template/images/koctas.jpg" alt="" style="width:330;height:235">
-                </div>
-                <div class="bg-light p-4">
-                    <img src="~/Template/images/lacoste.jpg" alt="" style="width:330;height:235">
-                </div>
-                <div class="bg-light p-4">
-                    <img src="~/Template/images/nike.png" alt="" style="width:330;height:235">
-                </div>
-
+                }
             </div>
         </div>
     </div>

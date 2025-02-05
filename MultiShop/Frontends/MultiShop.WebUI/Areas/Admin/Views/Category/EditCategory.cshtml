@@ -13,9 +13,12 @@
                 <h4>Edit Category</h4>
                 <div class="bs-example" data-example-id="simple-table">
                     <form method="post">
-                        <input type="text" readonly class="form-control" asp-for="CategoryId" />
+                        <input type="hidden" asp-for="CategoryId" />
                         <label>Category Name</label>
                         <input type="text" class="form-control" asp-for="CategoryName" />
+                        <br>
+                        <label>Image Url</label>
+                        <input type="text" class="form-control" asp-for="ImageUrl" />
                         <br>
                         <button type="submit" class="btn btn-primary">Edit</button>
                     </form>

@@ -1,0 +1,48 @@
+﻿@model List<ResultFeatureDto>
+
+@{
+
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
+    int count = 0;
+}
+
+<section class="content container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="chart-box">
+                <h4>Feature List</h4>
+                <div class="bs-example" data-example-id="simple-table">
+                    <table class="table">
+
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Title</th>
+                                <th>Icon</th>
+                                <th>Delete</th>
+                                <th>Update</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                count++;
+                                <tr>
+                                    <th scope="row">@count</th>
+                                    <td>@item.Title</td>
+                                    <td>@item.Icon</td>
+                                    <td><a href="/Admin/Feature/DeleteFeature/@item.FeatureId" class="btn btn-danger">Delete</a></td>
+                                    <td><a href="/Admin/Feature/EditFeature/@item.FeatureId" class="btn btn-success">Update</a></td>
+
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                    <a href="/Admin/Feature/CreateFeature" class="btn btn-primary">Add Feature</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
