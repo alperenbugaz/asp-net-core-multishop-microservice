@@ -1,0 +1,38 @@
+﻿@model UpdateAboutDto
+
+
+@{
+    ViewData["Title"] = "EditAbout";
+    Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
+}
+
+<section class="content container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="chart-box">
+                <h4>Edit About</h4>
+                <br />
+                <div class="bs-example" data-example-id="simple-table">
+                    <form method="post">
+                        <label>Description</label>
+                        <input type="hidden" asp-for="AboutId" />
+
+                        <input type="text" class="form-control" asp-for="Description" />
+                        <br>
+                        <label>Address</label>
+                        <input type="text" class="form-control" asp-for="Address" />
+                        <br>
+                        <label>Email</label>
+                        <input type="text" class="form-control" asp-for="Email" />
+                        <br>
+                        <label>Phone</label>
+                        <input type="text" class="form-control" asp-for="Phone" />
+                        <br>
+                        <button type="submit" class="btn btn-primary">Update</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
