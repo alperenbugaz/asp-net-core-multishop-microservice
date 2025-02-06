@@ -22,6 +22,8 @@
                                 <th>Category</th>
                                 <th>Delete</th>
                                 <th>Update</th>
+                                <th>Product Images</th>
+                                <th>Product Details</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -35,6 +37,8 @@
                                     <td>@item.Category.CategoryName</td>
                                     <td><a href="/Admin/Product/DeleteProduct/@item.ProductId" class="btn btn-danger">Delete</a></td>
                                     <td><a href="/Admin/Product/EditProduct/@item.ProductId" class="btn btn-success">Update</a></td>
+                                    <td><a href="/Admin/ProductImage/ProductImageDetail/@item.ProductId" class="btn btn-warning">Product Images</a></td>
+                                    <td><a href="/Admin/ProductDetail/UpdateProductDetail/@item.ProductId" class="btn btn-info">Product Details</a></td>
                                 </tr>
                             }
                         </tbody>

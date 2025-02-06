@@ -31,7 +31,7 @@ namespace MultiShop.Catalog.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateProductDetail([FromBody] CreateProductDetailDto createProductDetailDto)
+        public async Task<IActionResult> CreateProductDetail(CreateProductDetailDto createProductDetailDto)
         {
             await _ProductDetailService.CreateProductDetailAsync(createProductDetailDto);
             return Ok("ProductDetail created successfully");
@@ -51,6 +51,14 @@ namespace MultiShop.Catalog.Controllers
             return Ok("ProductDetail updated successfully");
         }
 
-        
+        [HttpGet]
+        [Route("GetByProductIdProductDetail")]
+        public async Task<IActionResult> GetByProductIdProductDetail(string id)
+        {
+            var ProductDetail = await _ProductDetailService.GetByProductIdProductDetailAsync(id);
+            return Ok(ProductDetail);
+        }
+
+
     }
 }

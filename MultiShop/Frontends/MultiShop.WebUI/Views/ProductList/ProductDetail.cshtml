@@ -19,8 +19,8 @@
 <div class="container-fluid pb-5">
     <div class="row px-xl-5">
 
-        @await Component.InvokeAsync("_ProductDetailImageSliderComponentPartial")
-        @await Component.InvokeAsync("_ProductDetailFeatureComponentPartial")
+        @await Component.InvokeAsync("_ProductDetailImageSliderComponentPartial", new { id = ViewBag.vbProductId })
+        @await Component.InvokeAsync("_ProductDetailFeatureComponentPartial", new { id = ViewBag.vbProductId })
 
     </div>
     <div class="row px-xl-5">
@@ -32,8 +32,8 @@
                     <a class="nav-item nav-link text-dark" data-toggle="tab" href="#tab-pane-3">Reviews (0)</a>
                 </div>
                 <div class="tab-content">
-                    @await Component.InvokeAsync("_ProductDetailDescriptionComponentPartial")
-                    @await Component.InvokeAsync("_ProductDetailInformationComponentPartial")
+                    @await Component.InvokeAsync("_ProductDetailDescriptionComponentPartial", new { id = ViewBag.vbProductId })
+                    @await Component.InvokeAsync("_ProductDetailInformationComponentPartial", new { id = ViewBag.vbProductId })
                     @await Component.InvokeAsync("_ProductDetailReviewComponentPartial")
 
                 </div>

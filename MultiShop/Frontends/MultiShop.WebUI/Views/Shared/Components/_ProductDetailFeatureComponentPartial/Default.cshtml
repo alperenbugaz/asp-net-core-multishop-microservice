@@ -1,6 +1,8 @@
-﻿<div class="col-lg-7 h-auto mb-30">
+﻿@model UpdateProductDto
+
+<div class="col-lg-7 h-auto mb-30">
     <div class="h-100 bg-light p-30">
-        <h3>Shoes</h3>
+        <h3>@Model.ProductName</h3>
         <div class="d-flex mb-3">
             <div class="text-primary mr-2">
                 <small class="fas fa-star"></small>
@@ -11,9 +13,9 @@
             </div>
             <small class="pt-1">(99 Reviews)</small>
         </div>
-        <h3 class="font-weight-semi-bold mb-4">$150.00</h3>
+        <h3 class="font-weight-semi-bold mb-4">$ @Model.ProductPrice</h3>
         <p class="mb-4">
-            Shoes that will make your feet feel comfortable while doing sports
+           @Model.ProductDescription
         </p>
         <div class="d-flex mb-3">
             <strong class="text-dark mr-3">Sizes:</strong>
