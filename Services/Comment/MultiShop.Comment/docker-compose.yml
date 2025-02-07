@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  mssql:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    container_name: MultiShop.Comment
+    restart: always
+    ports:
+      - "1442:1433" 
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=123456789Aa*
+      - MSSQL_TLS_DISABLED=1 
+
+ 
+    volumes:
+      - sql_data:/var/opt/mssql 
+
+volumes:
+  sql_data:
+    driver: local

@@ -14,7 +14,7 @@ namespace MultiShop.WebUI.ViewComponents.ProductDetailViewComponents
             _clientFactory = clientFactory;
         }
         public async Task<IViewComponentResult> InvokeAsync(string id)
-        {   
+        {
             var client = _clientFactory.CreateClient();
             var response = await client.GetAsync("https://localhost:7070/api/ProductImage/ProductImagesByProductId?id=" + id);
             if (response.IsSuccessStatusCode)
