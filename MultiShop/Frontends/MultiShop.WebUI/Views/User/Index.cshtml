@@ -1,0 +1,28 @@
+﻿@model UserDetailViewModel
+
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>User</title>
+<link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <br />        <br />        <br />
+
+        <h3>User Profile</h3>
+        <div class="alert alert-info">User Id : @Model.Id</div>
+        <div class="alert alert-warning">UserName : @Model.UserName</div>
+        <div class="alert alert-warning">Name : @Model.Name</div>
+        <div class="alert alert-warning">Surname : @Model.Surname</div>
+        <div class="alert alert-warning">Mail : @Model.Email</div>
+    </div>
+</body>
+</html>
