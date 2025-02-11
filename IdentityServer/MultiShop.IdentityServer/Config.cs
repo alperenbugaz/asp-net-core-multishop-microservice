@@ -53,7 +53,9 @@ public static class Config
                 ClientName = "MultiShop Visitor User",
                 AllowedGrantTypes = GrantTypes.ClientCredentials,
                 ClientSecrets = { new Secret("MultiShopManagerSecret".Sha256()) },
-                AllowedScopes = { "CatalogFullPermission", "DiscountFullPermission", "PaymentFullPermission", "CommentFullPermission", "ImagesFullPermission", "BasketFullPermission", "OcelotFullPermission" }
+                AllowedScopes = { "CatalogFullPermission", "DiscountFullPermission", "PaymentFullPermission", 
+                                  "CommentFullPermission", "ImagesFullPermission", "BasketFullPermission", 
+                                   "OcelotFullPermission" }
             },
             //Manager
             new Client

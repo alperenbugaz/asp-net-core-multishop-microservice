@@ -23,8 +23,6 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
 });
 
 
-
-builder.Services.AddTransient<DapperContext>();
 builder.Services.AddTransient<IDiscountService, DiscountService>();
 
 builder.Services.AddControllers();
