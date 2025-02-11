@@ -55,7 +55,7 @@ namespace MultiShop.Catalog.Controllers
         }
 
         [HttpGet]
-        [Route("GetByProductIdProductDetail")]
+        [Route("GetByProductIdProductDetail/{id}")]
         public async Task<IActionResult> GetByProductIdProductDetail(string id)
         {
             var ProductDetail = await _ProductDetailService.GetByProductIdProductDetailAsync(id);

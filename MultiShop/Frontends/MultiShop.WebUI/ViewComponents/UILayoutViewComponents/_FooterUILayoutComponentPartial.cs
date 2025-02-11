@@ -1,29 +1,22 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MultiShop.DtoLayer.CatalogDtos.AboutDtos;
+using MultiShop.WebUI.Services.CatalogServices.AboutServices;
 using Newtonsoft.Json;
 
 namespace MultiShop.WebUI.ViewComponents.UILayoutViewComponents
 {
     public class _FooterUILayoutComponentPartial : ViewComponent
     {
-        IHttpClientFactory _clientFactory;
-        public _FooterUILayoutComponentPartial(IHttpClientFactory clientFactory)
+        private readonly IAboutService _aboutService;
+
+        public _FooterUILayoutComponentPartial(IAboutService aboutService)
         {
-            _clientFactory = clientFactory;
+            _aboutService = aboutService;
         }
         public async Task<IViewComponentResult> InvokeAsync()
         {   
-            var client = _clientFactory.CreateClient();
-            var response = await client.GetAsync("https://localhost:7070/api/About");
-
-            if (response.IsSuccessStatusCode)
-            {
-                var content = await response.Content.ReadAsStringAsync();
-                var about = JsonConvert.DeserializeObject<List<ResultAboutDto>>(content);
-                return View(about);
-            }
-
-            return View();
+            var values = await _aboutService.GetAllAboutAsync();
+            return View(values);
         }
     }
 }

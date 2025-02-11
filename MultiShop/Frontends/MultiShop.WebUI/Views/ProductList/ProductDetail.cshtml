@@ -3,8 +3,6 @@
     Layout = "~/Views/UILayout/_UILayout.cshtml";
 }
 
-
-
 <div class="container-fluid">
     <div class="row px-xl-5">
         <div class="col-12">
@@ -16,7 +14,6 @@
         </div>
     </div>
 </div>
-
 
 <div class="container-fluid pb-5">
     <div class="row px-xl-5">
@@ -36,8 +33,8 @@
                 <div class="tab-content">
                     @await Component.InvokeAsync("_ProductDetailDescriptionComponentPartial", new { id = ViewBag.vbProductId })
                     @await Component.InvokeAsync("_ProductDetailInformationComponentPartial", new { id = ViewBag.vbProductId })
-                  @await Component.InvokeAsync("_ProductDetailReviewComponentPartial", new { id = ViewBag.vbProductId }) 
-
+@*                   @await Component.InvokeAsync("_ProductDetailReviewComponentPartial", new { id = ViewBag.vbProductId }) 
+ *@
                 </div>
             </div>
         </div>
