@@ -22,9 +22,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="wwwroot\lib\bootstrap4-glyphicons\css\" />
-	  <Folder Include="wwwroot\lib\bootstrap4-glyphicons\maps\" />
-	  <Folder Include="wwwroot\lib\bootstrap\dist\css\" />
-	  <Folder Include="wwwroot\lib\bootstrap\dist\js\" />
+
 	</ItemGroup>
 </Project>

@@ -13,8 +13,6 @@
 
   <ItemGroup>
     <None Include="Services\CatalogServices\ProductServices\IProductService.cs" />
-    <None Include="wwwroot\AdminTemplate\help-documentation\assets\.DS_Store" />
-    <None Include="wwwroot\AdminTemplate\help-documentation\assets\blueprint-css\plugins\.DS_Store" />
     <None Include="wwwroot\AdminTemplate\html\app\et-line-font\fonts\.DS_Store" />
     <None Include="wwwroot\AdminTemplate\html\charts\et-line-font\fonts\.DS_Store" />
     <None Include="wwwroot\AdminTemplate\html\component\et-line-font\fonts\.DS_Store" />
