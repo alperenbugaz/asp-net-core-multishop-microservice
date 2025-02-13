@@ -23,7 +23,7 @@ public class GetAddressByIdQueryHandler
             UserId = values.UserId,
             District = values.District,
             City = values.City,
-            Detail = values.Detail
+            Detail = values.Detail1
         };
     }
 }

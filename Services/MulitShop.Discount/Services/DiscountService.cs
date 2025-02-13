@@ -50,6 +50,18 @@ public class DiscountService : IDiscountService
         }
     }
 
+    public async Task<ResultCouponDto> GetCodeDetailByCodeAsync(string code)
+    {
+        string query = "select * from Coupons where Code = @code";
+        var parameters = new DynamicParameters();
+        parameters.Add("@code", code);
+        using (var connection = _dapperContext.CreateConnection())
+        {
+            var values = await connection.QueryFirstOrDefaultAsync<ResultCouponDto>(query, parameters);
+            return values;
+        }
+    }
+
     public async Task<ResultCouponDto> GetCouponByIdAsync(int couponId)
     {
         string query = "select * from Coupons where CouponId = @couponId";
@@ -62,6 +74,18 @@ public class DiscountService : IDiscountService
             return values;
         }
 
+    }
+
+    public int GetDiscountCouponCountRate(string code)
+    {
+        string query = "select Rate from Coupons where Code = @code";
+        var parameters = new DynamicParameters();
+        parameters.Add("@code", code);
+        using (var connection = _dapperContext.CreateConnection())
+        {
+            var values =  connection.QueryFirstOrDefault<int>(query, parameters);
+            return values;
+        }
     }
 
     public async Task UpdateCouponAsync(UpdateCouponDto updateCouponDto)

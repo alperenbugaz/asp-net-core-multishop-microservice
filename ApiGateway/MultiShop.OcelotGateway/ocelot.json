@@ -128,7 +128,8 @@
         "AuthenticationProviderKey": "OcelotAuthenticationScheme",
         "AllowedScopes": [ "PaymentFullPermission" ]
       }
-    }, //Images Microservice
+    }, 
+    //Images Microservice
     {
       "DownstreamPathTemplate": "/api/{everything}",
       "DownstreamScheme": "http",

@@ -1,7 +1,5 @@
 ﻿using MultiShop.DtoLayer.CatalogDtos.ProductDtos;
-using MultiShop.DtoLayer.CatalogDtos.ProductDtos;
 using Newtonsoft.Json;
-using System.Net.Http;
 
 namespace MultiShop.WebUI.Services.CatalogServices.ProductServices
 {

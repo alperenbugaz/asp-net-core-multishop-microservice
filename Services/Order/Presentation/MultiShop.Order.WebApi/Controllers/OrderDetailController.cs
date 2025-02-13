@@ -10,7 +10,7 @@ namespace MultiShop.Order.WebApi.Controllers
     [Authorize]
     [Route("api/[controller]")]
     [ApiController]
-    public class OrderDetailContoller : ControllerBase
+    public class OrderDetailController : ControllerBase
     {
         private readonly GetOrderDetailQueryHandler _getOrderDetailQueryHandler;
         private readonly GetOrderDetailByIdQueryHandler _getOrderDetailByIdQueryHandler;
@@ -18,7 +18,7 @@ namespace MultiShop.Order.WebApi.Controllers
         private readonly UpdateOrderDetailCommandHandler _updateOrderDetailCommandHandler;
         private readonly RemoveOrderDetailCommandHandler _removeOrderDetailCommandHandler;
 
-        public OrderDetailContoller(
+        public OrderDetailController(
             GetOrderDetailQueryHandler getOrderDetailQueryHandler,
             GetOrderDetailByIdQueryHandler getOrderDetailByIdQueryHandler,
             CreateOrderDetailCommandHandler createOrderDetailCommandHandler,

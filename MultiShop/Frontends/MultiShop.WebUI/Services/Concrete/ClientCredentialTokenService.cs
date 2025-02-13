@@ -30,7 +30,7 @@ namespace MultiShop.WebUI.Services.Concrete
         }
         public async Task<string> GetToken()
         {
-           if (_memoryCache.TryGetValue("multishoptoken", out string cachedToken))
+           if (_memoryCache.TryGetValue("MultiShopManagerSecret", out string cachedToken))
             {
                 return cachedToken;
             }
@@ -64,7 +64,7 @@ namespace MultiShop.WebUI.Services.Concrete
                 throw new Exception("Token alınamadı: " + tokenResponse.ErrorDescription);
             }
 
-            _memoryCache.Set("multishoptoken", tokenResponse.AccessToken, TimeSpan.FromSeconds(tokenResponse.ExpiresIn));
+            _memoryCache.Set("MultiShopManagerSecret", tokenResponse.AccessToken, TimeSpan.FromSeconds(tokenResponse.ExpiresIn));
 
             return tokenResponse.AccessToken;
         }

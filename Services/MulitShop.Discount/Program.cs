@@ -4,24 +4,16 @@ using MultiShop.Discount.Context;
 using MultiShop.Discount.Services;
 
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddEndpointsApiExplorer();
 
-builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(opt =>
 {
-    options.Authority = builder.Configuration["IdentityServerUrl"];
-
-    options.Audience = "ResourceDiscount";
-    options.TokenValidationParameters = new TokenValidationParameters
-    {
-        ValidateIssuer = true,
-        ValidateAudience = true,
-        ValidateLifetime = true,
-        ClockSkew = TimeSpan.Zero
-    };
-
-    options.RequireHttpsMetadata = false;
+    opt.Authority = builder.Configuration["IdentityServerUrl"];
+    opt.Audience = "ResourceDiscount";
+    opt.RequireHttpsMetadata = false;
 });
 
+
+builder.Services.AddTransient<DapperContext>();
 
 builder.Services.AddTransient<IDiscountService, DiscountService>();
 

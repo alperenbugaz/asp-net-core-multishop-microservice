@@ -7,7 +7,6 @@ namespace MultiShop.Discount.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
     public class DiscountController : ControllerBase
     {
         private readonly IDiscountService _discountService;
@@ -51,6 +50,19 @@ namespace MultiShop.Discount.Controllers
             return Ok("Coupon updated successfully");
         }
 
+        [HttpGet("GetCodeDetailByCodeAsync")]
+        public async Task<IActionResult> GetCodeDetailByCodeAsync(string code)
+        {
+            var coupon = await _discountService.GetCodeDetailByCodeAsync(code);
+            return Ok(coupon);
+        }
+
+        [HttpGet("GetDiscountCouponCountRate")]
+        public async Task<IActionResult> GetDiscountCouponCountRate(string code)
+        {
+            var rate = _discountService.GetDiscountCouponCountRate(code);
+            return Ok(rate);
+        }
 
     }
 }

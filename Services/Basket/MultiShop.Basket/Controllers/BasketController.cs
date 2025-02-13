@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MultiShop.Basket.Dtos;
 using MultiShop.Basket.LoginServices;
@@ -23,22 +24,41 @@ namespace MultiShop.Basket.Controllers
         {
 
             var user = User.Claims;
-            var values = await _basketService.GetBasketAsync(_loginService.GetUserId);
+            var userId = _loginService.GetUserId;
+            if (string.IsNullOrEmpty(userId))
+            {
+                return BadRequest("Kullanıcı kimliği alınamadı.");
+            }
+            var values = await _basketService.GetBasket(_loginService.GetUserId);
             return Ok(values);
-        }   
+        }
 
         [HttpPost]
         public async Task<IActionResult> SaveBasket(BasketTotalDto basketTotalDto)
         {
-            basketTotalDto.UserId = _loginService.GetUserId;
-            await _basketService.SaveBasketAsync(basketTotalDto);
-            return Ok("Sepetteki değişiklikler kaydedildi");
+            try
+            {
+                var userId = _loginService.GetUserId;
+                if (string.IsNullOrEmpty(userId))
+                {
+                    return Unauthorized("Kullanıcı kimliği alınamadı.");
+                }
+
+                basketTotalDto.UserId = userId;
+                await _basketService.SaveBasket(basketTotalDto);
+                return Ok("Sepetteki değişiklikler kaydedildi");
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                return Unauthorized(ex.Message);
+            }
         }
+
 
         [HttpDelete]
         public async Task<IActionResult> DeleteBasket()
         {
-            await _basketService.DeleteBasketAsync(_loginService.GetUserId);
+            await _basketService.DeleteBasket(_loginService.GetUserId);
             return Ok("Sepet silindi");
         }
     }

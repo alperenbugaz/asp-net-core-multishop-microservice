@@ -5,26 +5,25 @@ using System.Text.Json;
 namespace MultiShop.Basket.Services
 {
     public class BasketService : IBasketService
-    {   
+    {
         private readonly RedisService _redisService;
         public BasketService(RedisService redisService)
         {
-            _redisService = redisService;   
+            _redisService = redisService;
         }
-        public async Task DeleteBasketAsync(string userId)
+        public async Task DeleteBasket(string userId)
         {
-            var status = await _redisService.GetDb().KeyDeleteAsync(userId);
+            await _redisService.GetDb().KeyDeleteAsync(userId);
         }
-
-        public async Task<BasketTotalDto> GetBasketAsync(string userId)
+        public async Task<BasketTotalDto> GetBasket(string userId)
         {
-            var existingBasket = await _redisService.GetDb().StringGetAsync(userId);
-            return JsonSerializer.Deserialize<BasketTotalDto>(existingBasket);
+            var existBasket = await _redisService.GetDb().StringGetAsync(userId);
+            return JsonSerializer.Deserialize<BasketTotalDto>(existBasket);
         }
-
-        public async Task SaveBasketAsync(BasketTotalDto basketTotalDto)
+        public async Task SaveBasket(BasketTotalDto basketTotalDto)
         {
             await _redisService.GetDb().StringSetAsync(basketTotalDto.UserId, JsonSerializer.Serialize(basketTotalDto));
+
         }
     }
 }
