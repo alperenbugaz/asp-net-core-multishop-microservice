@@ -7,12 +7,21 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="wwwroot\CartStyle.css" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\User\Controllers\" />
+    <Folder Include="Areas\User\Data\" />
+    <Folder Include="Areas\User\Models\" />
+    <Folder Include="Areas\User\Views\" />
   </ItemGroup>
 
   <ItemGroup>
     <None Include="Services\CatalogServices\ProductServices\IProductService.cs" />
+    <None Include="wwwroot\css\CartStyle.css" />
     <None Include="wwwroot\AdminTemplate\html\app\et-line-font\fonts\.DS_Store" />
     <None Include="wwwroot\AdminTemplate\html\charts\et-line-font\fonts\.DS_Store" />
     <None Include="wwwroot\AdminTemplate\html\component\et-line-font\fonts\.DS_Store" />
