@@ -1,0 +1,45 @@
+﻿@model List<ResultOrderingByUserIdDto>
+
+@{
+    ViewData["Title"] = "MyOrderList";
+    Layout = "~/Areas/User/Views/UserLayout/Index.cshtml";
+    int count = 0;
+}
+
+
+<section class="content container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="chart-box">
+                <h4>My Orders</h4>
+                <div class="bs-example" data-example-id="simple-table">
+                    <table class="table">
+
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Price</th>
+                                <th>Order Date</th>
+                                <th>Order Detail</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                count++;
+                                <tr>
+                                    <th scope="row">@count</th>
+                                    <td>@item.TotalPrice</td>
+                                    <td>@item.OrderDate.ToString()</td>
+                                    <td><a href="#" class="btn btn-success">Order Detail</a></td>
+
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>

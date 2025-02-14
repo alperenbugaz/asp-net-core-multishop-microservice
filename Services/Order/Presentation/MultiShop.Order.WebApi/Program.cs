@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using MultiShop.Order.Application.Features.CQRS.Handlers.OrderDetailHandlers;
+using MultiShop.Order.Application.Interfaces;
 using MultiShop.Order.Application.Services;
 using MultiShop.Order.Core.Application.Features.CQRS.Handlers.AddressHandlers;
 using MultiShop.Order.Core.Application.Interfaces;
@@ -36,6 +37,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
 
 builder.Services.AddDbContext<OrderContext>();
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+builder.Services.AddScoped(typeof(IOrderingRepository), typeof(OrderingRepository));
 builder.Services.AddApplicationService(builder.Configuration);
 #region
 // Add services to the container.
@@ -50,6 +52,8 @@ builder.Services.AddScoped<GetOrderDetailByIdQueryHandler>();
 builder.Services.AddScoped<CreateOrderDetailCommandHandler>();
 builder.Services.AddScoped<UpdateOrderDetailCommandHandler>();
 builder.Services.AddScoped<RemoveOrderDetailCommandHandler>();
+
+
 #endregion
 
 builder.Services.AddControllers();

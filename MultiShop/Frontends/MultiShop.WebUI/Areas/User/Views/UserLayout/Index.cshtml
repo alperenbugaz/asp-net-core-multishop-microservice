@@ -1,0 +1,34 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<!DOCTYPE html>
+<html lang="en">
+
+@await Component.InvokeAsync("_UserLayoutHeadComponentPartial")
+
+<body class="sidebar-mini">
+    <div class="wrapper">
+
+        @await Component.InvokeAsync("_UserLayoutHeaderComponentPartial")
+        @await Component.InvokeAsync("_UserLayoutSideBarComponentPartial")
+
+        <div class="content-wrapper">
+    
+            @RenderBody()
+          
+        </div>
+
+        <footer class="main-footer dark-bg">
+            <div class="pull-right hidden-xs"> Version 1.0</div>
+            Copyright &copy; @DateTime.Now.Year  - MultiShop
+        </footer>
+    </div>
+
+    <script src="~/AdminTemplate/html/dist/js/jquery.min.js"></script>
+    <script src="~/AdminTemplate/html/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/AdminTemplate/html/dist/js/ovio.js"></script>
+</body>
+</html>
