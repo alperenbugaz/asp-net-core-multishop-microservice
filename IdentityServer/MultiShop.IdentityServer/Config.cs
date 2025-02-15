@@ -105,6 +105,8 @@ public static class Config
                     "OcelotFullPermission",
                     "CommentFullPermission",
                     "PaymentFullPermission",
+                     "MessageFullPermission",
+
                     "ImageFullPermission",
                     "CargoFullPermission",
                     IdentityServerConstants.LocalApi.ScopeName,

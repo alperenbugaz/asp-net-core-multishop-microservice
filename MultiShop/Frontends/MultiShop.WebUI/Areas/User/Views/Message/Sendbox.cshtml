@@ -1,0 +1,50 @@
+﻿@model List<ResultSendboxMessageDto>
+
+@{
+    ViewData["Title"] = "Sendbox";
+    Layout = "~/Areas/User/Views/UserLayout/Index.cshtml";
+    int count = 0;
+}
+
+<section class="content container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="chart-box">
+                <h4>Inbox List</h4>
+                <div class="bs-example" data-example-id="simple-table">
+                    <table class="table">
+
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Sender</th>
+                                <th>Subject</th>
+                                <th>Date</th>
+                                <th>Status</th>
+                                <th>Delete</th>
+                                <th>Message</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                count++;
+                                <tr>
+                                    <th scope="row">@count</th>
+                                    <td>@item.ReceiverId</td>
+                                    <td>@item.Subject</td>
+                                    <td>@item.MessageDate.ToString()</td>
+                                    <td>@item.IsRead</td>
+                                    <td><a href="#" class="btn btn-danger">Delete</a></td>
+                                    <td><a href="#" class="btn btn-info">Message</a></td>
+
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
