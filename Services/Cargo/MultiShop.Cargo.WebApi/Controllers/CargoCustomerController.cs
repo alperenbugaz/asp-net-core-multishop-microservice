@@ -38,6 +38,7 @@ namespace MultiShop.Cargo.WebApi.Controllers
             cargoCustomer.District = createCargoCustomerDto.District;
             cargoCustomer.City = createCargoCustomerDto.City;
             cargoCustomer.Address = createCargoCustomerDto.Address;
+            cargoCustomer.UserCustomerId = createCargoCustomerDto.UserCustomerId;
 
             _cargoCustomerService.TAdd(cargoCustomer);
             return Ok("Kargo Müşterisi Başarı ile Oluşturuldu");
@@ -60,10 +61,16 @@ namespace MultiShop.Cargo.WebApi.Controllers
             cargoCustomer.District = updateCargoCustomerDto.District;
             cargoCustomer.City = updateCargoCustomerDto.City;
             cargoCustomer.Address = updateCargoCustomerDto.Address;
+            cargoCustomer.UserCustomerId = updateCargoCustomerDto.UserCustomerId;
 
             _cargoCustomerService.TUpdate(cargoCustomer);
             return Ok("Kargo Müşterisi Başarı ile Güncellendi");
         }
 
+        [HttpGet("GetCargoCustomerById")]
+        public IActionResult GetCargoCustomerById(string id)
+        {
+            return Ok(_cargoCustomerService.TGetCargoCustomerById(id));
+        }
     }
 }

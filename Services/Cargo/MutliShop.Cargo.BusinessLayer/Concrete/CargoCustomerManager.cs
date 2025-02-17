@@ -17,6 +17,12 @@ namespace MutliShop.Cargo.BusinessLayer.Concrete
         {
             _cargoCustomerDal = cargoCustomerDal;
         }
+
+        public CargoCustomer TGetCargoCustomerById(string id)
+        {
+            return _cargoCustomerDal.GetCargoCustomerById(id);
+        }
+
         public void TAdd(CargoCustomer entity)
         {
             _cargoCustomerDal.Add(entity);

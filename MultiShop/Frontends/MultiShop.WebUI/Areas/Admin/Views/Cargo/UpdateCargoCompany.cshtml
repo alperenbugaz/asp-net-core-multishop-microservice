@@ -1,0 +1,27 @@
+﻿@model UpdateCargoCompanyDto
+
+@{
+    ViewData["Title"] = "UpdateCargoCompany";
+    Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
+}
+
+<section class="content container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="chart-box">
+                <h4>Update Cargo Company</h4>
+                <div class="bs-example" data-example-id="simple-table">
+                    <form method="post">
+                        <input type="hidden" asp-for="CargoCompanyId" />
+                        <label>Company Name</label>
+                        <input type="text" class="form-control" asp-for="CargoCompanyName" />
+                        <br>
+                        <button type="submit" class="btn btn-primary">Update</button>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
