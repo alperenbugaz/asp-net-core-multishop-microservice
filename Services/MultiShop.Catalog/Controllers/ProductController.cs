@@ -69,6 +69,12 @@ namespace MultiShop.Catalog.Controllers
             return Ok(categories);
         }
 
+        [HttpGet("ProductListWithCategoryByQuery/{query}")]
+        public async Task<IActionResult> ProductListWithCategoryByQuery(string query)
+        {
+            var categories = await _ProductService.GetProductWithQueryParam(query);
+            return Ok(categories);
+        }
 
 
     }

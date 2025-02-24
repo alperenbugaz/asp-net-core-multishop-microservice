@@ -30,5 +30,11 @@ namespace MultiShop.WebUI.Services.MessageServices
             return values;
         }
 
+        public async Task<int> GetTotalMessageCountyByReceiverId(string id)
+        {
+            var responseMessage = await _httpClient.GetAsync("UserMessage/GetTotalMessageCountyByReceiverId?id=" + id);
+            var values = await responseMessage.Content.ReadFromJsonAsync<int>();
+            return values;
+        }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MultiShop.DtoLayer.CommentDtos;
+using MultiShop.WebUI.Services.CatalogServices.ProductServices;
 using Newtonsoft.Json;
 using System.Text;
 
@@ -8,27 +9,24 @@ namespace MultiShop.WebUI.Controllers
     public class ProductListController : Controller
     {   
         private readonly IHttpClientFactory _clientFactory;
-
-        public ProductListController(IHttpClientFactory clientFactory)
+        private readonly IProductService _productService;
+        public ProductListController(IHttpClientFactory clientFactory, IProductService productService)
         {
             _clientFactory = clientFactory;
+            _productService = productService;
         }
 
         public IActionResult Index(string id)
         {
-            ViewBag.Directory1 = "Home";
-            ViewBag.Directory2 = "Products";
-            ViewBag.Directory3 = "Product List";
             ViewBag.vbCategoryId = id;
+
             return View();
         }
 
         public IActionResult ProductDetail(string id)
         {
-            ViewBag.Directory1 = "Home";
-            ViewBag.Directory2 = "Products";
-            ViewBag.Directory3 = "Product Detail";
             ViewBag.vbProductId = id;
+
             return View();
         }
 
@@ -57,5 +55,14 @@ namespace MultiShop.WebUI.Controllers
             }
             return View();
         }
+
+        public async Task<IActionResult> SearchProduct(string query)
+        {
+
+            var values = await _productService.GetProductWithQueryParam(query);
+
+            return View(values);
+        }
+
     }
 }

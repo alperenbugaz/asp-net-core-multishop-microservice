@@ -15,6 +15,7 @@
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\User\Data\" />
     <Folder Include="Areas\User\Models\" />
+    <Folder Include="wwwroot\lib\microsoft\signalr\dist\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -36,8 +37,10 @@
     <PackageReference Include="Duende.IdentityModel" Version="7.0.0" />
     <PackageReference Include="Duende.IdentityServer.Storage" Version="7.1.0" />
     <PackageReference Include="IdentityModel.AspNetCore.OAuth2Introspection" Version="6.2.0" />
+    <PackageReference Include="MailKit" Version="4.10.0" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.1" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.7" />
+    <PackageReference Include="NETCore.MailKit" Version="2.1.0" />
   </ItemGroup>
 
   <ItemGroup>

@@ -72,6 +72,13 @@ namespace MultiShop.Message.Controllers
             return Ok(value);
         }
 
+        //GetTotalMessageCountyByReceiverId
+        [HttpGet("GetTotalMessageCountyByReceiverId")]
+        public async Task<IActionResult> GetTotalMessageCountyByReceiverId(string id)
+        {
+            int value = await _userMessageService.GetTotalMessageCountyByReceiverId(id);
+            return Ok(value);
+        }
 
     }
 }

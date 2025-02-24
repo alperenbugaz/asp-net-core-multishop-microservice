@@ -54,11 +54,7 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
                                                        }).ToList();
             ViewBag.CategoryList = categoryValues;
 
-            var productValue = await _productService.GetProductWithCategoryAsync();
-
-
-
-            return View(productValue);
+            return View();
         }
 
         [HttpPost]
@@ -116,15 +112,9 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
             ViewBag.v3 = "Product List With Category";
             ViewBag.v0 = "Product";
 
-            //var client = _httpClientFactory.CreateClient();
-            //var responseMessage = await client.GetAsync("https://localhost:7070/api/Product/ProductListWithCategory");
-            //if (responseMessage.IsSuccessStatusCode)
-            //{
-            //    var data = await responseMessage.Content.ReadAsStringAsync();
-            //    var values = JsonConvert.DeserializeObject<List<ResultProductWithCategoryDto>>(data);
-            //    return View(values);
-            //}
-            return View();
+            var values = await _productService.GetProductWithCategoryAsync();
+
+            return View(values);
         }
     }
 }

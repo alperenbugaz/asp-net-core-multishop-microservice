@@ -1,4 +1,5 @@
 using AutoMapper;
+using MongoDB.Bson;
 using MongoDB.Driver;
 using MultiShop.Catalog.Dtos.ProductDtos;
 using MultiShop.Catalog.Entites;
@@ -56,6 +57,13 @@ namespace MultiShop.Catalog.Services.ProductServices
 
             }
             return _mapper.Map<List<ResultProductWithCategory>>(values);
+        }
+
+        public Task<List<ResultProductDto>> GetProductWithQueryParam(string query)
+        {
+            var filter = Builders<Product>.Filter.Regex("ProductName", new BsonRegularExpression(query, "i")); // "i" is for case-insensitive
+            var values = _ProductCollection.Find(filter).ToList();
+            return Task.FromResult(_mapper.Map<List<ResultProductDto>>(values));
         }
 
         public async Task<List<ResultProductDto>> GettAllProductAsync()

@@ -87,6 +87,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Message", "Message", "{87D7
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiShop.Message", "Services\Message\MultiShop.Message\MultiShop.Message.csproj", "{4FF04155-6A2B-40EC-839D-E222B1CAC9A6}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SignalRRealTime", "SignalRRealTime", "{05448D49-C285-4BD7-AA1C-41556CBFFC25}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiShop.SignalRRealTimeApi", "Services\SignalRRealTime\MultiShop.SignalRRealTimeApi\MultiShop.SignalRRealTimeApi.csproj", "{BB320D83-8298-4052-867C-B0D0D31C5C95}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -173,6 +177,10 @@ Global
 		{4FF04155-6A2B-40EC-839D-E222B1CAC9A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4FF04155-6A2B-40EC-839D-E222B1CAC9A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4FF04155-6A2B-40EC-839D-E222B1CAC9A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB320D83-8298-4052-867C-B0D0D31C5C95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB320D83-8298-4052-867C-B0D0D31C5C95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB320D83-8298-4052-867C-B0D0D31C5C95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB320D83-8298-4052-867C-B0D0D31C5C95}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -211,6 +219,8 @@ Global
 		{295FA846-F413-48BB-9D43-187963B5ADCE} = {890A67A4-942E-408B-A40F-4FB7A25123B0}
 		{87D76A9D-12C9-46AE-9415-B2637F1FAAB7} = {F3C754EA-6769-42B1-A223-FE16B2242BE6}
 		{4FF04155-6A2B-40EC-839D-E222B1CAC9A6} = {87D76A9D-12C9-46AE-9415-B2637F1FAAB7}
+		{05448D49-C285-4BD7-AA1C-41556CBFFC25} = {F3C754EA-6769-42B1-A223-FE16B2242BE6}
+		{BB320D83-8298-4052-867C-B0D0D31C5C95} = {05448D49-C285-4BD7-AA1C-41556CBFFC25}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A4CE5299-4953-4DA8-B42E-6B40F45A0418}

@@ -27,51 +27,60 @@ namespace MultiShop.WebUI.Services.Concrete
 
         public async Task<bool> GetRefreshToken()
         {
+            var refreshToken = await _httpContextAccessor.HttpContext.GetTokenAsync(OpenIdConnectParameterNames.RefreshToken);
+
+            if (string.IsNullOrEmpty(refreshToken))
+            {
+                // Kullanıcıyı çıkış yaptır ve tekrar girişe yönlendir
+                await _httpContextAccessor.HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+                return false;
+            }
+
             var discoveryEndpoint = await _httpClient.GetDiscoveryDocumentAsync(new DiscoveryDocumentRequest
             {
                 Address = _serviceApiSettings.IdentityServerUrl,
                 Policy = new DiscoveryPolicy { RequireHttps = false }
             });
 
-            var refreshToken = await _httpContextAccessor.HttpContext.GetTokenAsync(OpenIdConnectParameterNames.RefreshToken);
-
-            RefreshTokenRequest refreshTokenRequest = new RefreshTokenRequest
+            var refreshTokenRequest = new RefreshTokenRequest
             {
                 Address = discoveryEndpoint.TokenEndpoint,
                 ClientId = _clientSettings.MultiShopManagerClient.ClientId,
                 ClientSecret = _clientSettings.MultiShopManagerClient.ClientSecret,
                 RefreshToken = refreshToken
             };
-            
+
             var token = await _httpClient.RequestRefreshTokenAsync(refreshTokenRequest);
 
-            var authenticationToken = new List<AuthenticationToken>()
-                {
-                new AuthenticationToken
-                {
-                    Name = OpenIdConnectParameterNames.AccessToken,
-                    Value = token.AccessToken
-                },
-                new AuthenticationToken
-                {
-                    Name = OpenIdConnectParameterNames.RefreshToken,
-                    Value = token.RefreshToken
-                },
-                new AuthenticationToken
-                {
-                    Name = OpenIdConnectParameterNames.ExpiresIn,
-                    Value = DateTime.UtcNow.AddSeconds(token.ExpiresIn).ToString()
-                }
-            };
+            if (token.IsError || string.IsNullOrEmpty(token.AccessToken))
+            {
+                
+                await _httpContextAccessor.HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+                return false;
+            }
+
+            var authenticationToken = new List<AuthenticationToken>
+    {
+        new AuthenticationToken { Name = OpenIdConnectParameterNames.AccessToken, Value = token.AccessToken },
+        new AuthenticationToken { Name = OpenIdConnectParameterNames.RefreshToken, Value = token.RefreshToken },
+        new AuthenticationToken { Name = OpenIdConnectParameterNames.ExpiresIn, Value = DateTime.UtcNow.AddSeconds(token.ExpiresIn).ToString() }
+    };
 
             var result = await _httpContextAccessor.HttpContext.AuthenticateAsync();
             var properties = result.Properties;
             properties.StoreTokens(authenticationToken);
             await _httpContextAccessor.HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, result.Principal, properties);
 
-
             return true;
         }
+
+
+        public async Task<bool> Logout()
+        {
+            await _httpContextAccessor.HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            return true;
+        }
+
 
         public async Task<bool> SignIn(SignInDto signInDto)
         {

@@ -50,5 +50,7 @@ namespace MultiShop.WebUI.Services.CommentServices
             var values = JsonConvert.DeserializeObject<List<ResultCommentDto>>(jsonData);
             return values;
         }
+
+
     }
 }

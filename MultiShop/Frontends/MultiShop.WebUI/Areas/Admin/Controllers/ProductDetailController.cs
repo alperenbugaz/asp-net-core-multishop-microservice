@@ -87,7 +87,7 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
             ViewBag.v3 = "Edit ProductDetail";
 
             var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.GetAsync("https://localhost:7070/api/ProductDetail/GetByProductIdProductDetail?id=" + id);
+            var responseMessage = await client.GetAsync("http://localhost:7070/api/ProductDetail/GetByProductIdProductDetail?id=" + id);
             if (responseMessage.IsSuccessStatusCode)
             {
                 var data = await responseMessage.Content.ReadAsStringAsync();

@@ -32,7 +32,7 @@ using MultiShop.WebUI.Settings;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddHttpContextAccessor();  // Bu satırı en üste taşıyın
+builder.Services.AddHttpContextAccessor(); 
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddCookie(JwtBearerDefaults.AuthenticationScheme,
@@ -96,6 +96,11 @@ builder.Services.AddHttpClient<IBasketService, BasketService>(opt =>
     opt.BaseAddress = new Uri($"{values.OcelotUrl}/{values.Basket.Path}");
 
 }).AddHttpMessageHandler<ResourceOwnerPasswordTokenHandler>();
+
+
+
+//SIGNALR
+
 
 
 builder.Services.AddHttpClient<IUserIdentityService, UserIdentityService>(opt =>
@@ -263,6 +268,13 @@ if (!app.Environment.IsDevelopment())
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
+app.UseStatusCodePages(async context =>
+{
+    if (context.HttpContext.Response.StatusCode == 404)
+    {
+        context.HttpContext.Response.Redirect("/Error/PageNotFound");
+    }
+});
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
@@ -279,7 +291,7 @@ app.UseEndpoints(endpoints =>
 });
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Login}/{action=Index}/{id?}"); 
 
 
 

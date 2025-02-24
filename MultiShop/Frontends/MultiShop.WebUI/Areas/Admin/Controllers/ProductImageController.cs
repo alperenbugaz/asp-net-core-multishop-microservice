@@ -28,7 +28,7 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
             ViewBag.v3 = "ProductImage Update";
             ViewBag.v0 = "ProductImage Update";
             var client = _clientFactory.CreateClient();
-            var responseMessage = await client.GetAsync("https://localhost:7070/api/ProductImage/ProductImagesByProductId?id=" + id);
+            var responseMessage = await client.GetAsync("http://localhost:7070/api/ProductImage/ProductImagesByProductId?id=" + id);
             if (responseMessage.IsSuccessStatusCode)
             {
                 var data = await responseMessage.Content.ReadAsStringAsync();
@@ -46,7 +46,7 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
             var client = _clientFactory.CreateClient();
             var json = JsonConvert.SerializeObject(updateProductImageDto);
             StringContent data = new StringContent(json, Encoding.UTF8, "application/json");
-            var responseMessage = await client.PutAsync("https://localhost:7070/api/ProductImage", data);
+            var responseMessage = await client.PutAsync("http://localhost:7070/api/ProductImage", data);
             if (responseMessage.IsSuccessStatusCode)
             {   
 
